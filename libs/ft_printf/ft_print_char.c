@@ -1,16 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_print_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/30 15:50:10 by mrosset           #+#    #+#             */
-/*   Updated: 2025/02/02 14:33:18 by mrosset          ###   ########.fr       */
+/*   Created: 2024/10/31 10:00:35 by mrosset           #+#    #+#             */
+/*   Updated: 2024/11/10 11:16:11 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main(int argc, char **argv)
+#include "ft_printf.h"
+
+int	ft_print_char(char c)
 {
-	return (0);
+	return (write(1, &c, 1));
 }
+
+/* Function for print a char (%c)*/

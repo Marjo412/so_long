@@ -1,16 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/30 15:50:10 by mrosset           #+#    #+#             */
-/*   Updated: 2025/02/02 14:33:18 by mrosset          ###   ########.fr       */
+/*   Created: 2024/10/04 09:23:48 by mrosset           #+#    #+#             */
+/*   Updated: 2024/10/12 14:39:26 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main(int argc, char **argv)
+#include "libft.h"
+
+void	*ft_memset(void *s, int c, size_t len)
 {
-	return (0);
+	unsigned char	*dest;
+	size_t			i;
+
+	dest = (unsigned char *)s;
+	i = 0;
+	while (i < len)
+	{
+		dest[i] = (unsigned char) c;
+		i++;
+	}
+	return (s);
 }
+
+/*rempli une zone memoire avec une valeur donnee sur un certain nd d'octets,
+utilisée pour initialiser des tableaux*/
