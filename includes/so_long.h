@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:50:42 by mrosset           #+#    #+#             */
-/*   Updated: 2025/02/02 16:34:11 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/02/07 13:26:06 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <errno.h>
+# include <string.h>
 
 # include "libft/libft.h"
 # include "ft_printf/ft_printf.h"
@@ -39,7 +40,7 @@
 
 typedef struct s_game
 {
-	void	*mlx;
+	void	*mlx_ptr;
 	void	*window;
 	char	**map;
 	int		map_width;
@@ -48,16 +49,14 @@ typedef struct s_game
 	int		player_y;
 	int		collectible;
 	int		move;
-}	t_game;
-
-typedef struct s_textures
-{
+	t_img	img;
 	void	*player;
 	void	*collectible;
 	void	*exit;
 	void	*wall;
 	void	*floor;
-}	t_textures;
+}	t_game;
+
 
 
 

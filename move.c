@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 13:58:15 by mrosset           #+#    #+#             */
-/*   Updated: 2025/02/02 14:17:14 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/02/07 13:16:32 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	handle_keypress(int keycode, t_game *game)
 {
+	if (keycode == ESC)
+		exit_game(game);
 	if (keycode == KEY_W || keycode == KEY_UP)
 		move_player(game, 0, -1);
 	else if (keycode == KEY_A || keycode == KEY_LEFT)
@@ -25,6 +27,6 @@ int	handle_keypress(int keycode, t_game *game)
 	return (0);
 }
 
-void	move_player(t_game *game, int x, int y)
+void	move_player(t_game *game, int dx, int dy)
 {
 }
