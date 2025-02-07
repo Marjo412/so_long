@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:50:42 by mrosset           #+#    #+#             */
-/*   Updated: 2025/02/07 13:26:06 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/02/07 15:11:43 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 # include "minilibx-linux/mlx.h"
 # include "get_next_line/get_next_line.h"
 
+# define TILE_SIZE 64
+
 # define FLOOR '0'
 # define WALL '1'
 # define COLLECTIBLE 'C'
@@ -36,12 +38,13 @@
 # define KEY_UP 65362
 # define KEY_LEFT 65364
 # define KEY_DOWN 65361
-# define KEY_RIGHT 65363 
+# define KEY_RIGHT 65363
+# define ESC 65387
 
 typedef struct s_game
 {
 	void	*mlx_ptr;
-	void	*window;
+	void	*win;
 	char	**map;
 	int		map_width;
 	int		map_height;
@@ -56,8 +59,5 @@ typedef struct s_game
 	void	*wall;
 	void	*floor;
 }	t_game;
-
-
-
 
 #endif

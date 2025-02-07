@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 13:58:15 by mrosset           #+#    #+#             */
-/*   Updated: 2025/02/07 13:16:32 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/02/07 14:54:06 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,30 @@ int	handle_keypress(int keycode, t_game *game)
 
 void	move_player(t_game *game, int dx, int dy)
 {
+	int	new_x;
+	int	new_y;
+
+	new_x = game->player_x + dx;
+	new_y = game->player_y + dy;
+	if (game->map[new_y][new_x] == '1')
+		return ;
+	if (game->map[new_y][new_x] == 'C')
+	{
+		game->collectible--;
+		game->map[new_y][new_y] = '0';
+	}
+	if (game->map[new_y][new_x] == 'E' && game->collectible == 0)
+	{
+		ft_printf("Youpiii !! You win !!\n");
+		exit_game(game);
+		return ;
+	}
+	game->player_x = new_x;
+	game->player_y = new_y;
+	create_map(game);
 }
+
+/*
+** the function move_player check the new posiion of the player, if its 1 (wall)
+it don't move, if its C (collectible) replace a 0 (wall), if ita E (exit) and
+the number of C is 0, htis this the end of the game.*/

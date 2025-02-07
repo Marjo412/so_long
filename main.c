@@ -6,11 +6,18 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:50:10 by mrosset           #+#    #+#             */
-/*   Updated: 2025/02/02 14:33:18 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/02/07 14:38:12 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	main(int argc, char **argv)
 {
+	t_game	game;
+	
+	if (argc == 2)
+	{
+	}
+	else
+		ft_printf("Error, it must have 2 args!\n");
 	return (0);
 }
