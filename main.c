@@ -16,6 +16,7 @@ int	main(int argc, char **argv)
 	
 	if (argc == 2)
 	{
+		while ()
 	}
 	else
 		ft_printf("Error, it must have 2 args!\n");
