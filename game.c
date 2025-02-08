@@ -16,7 +16,11 @@ void	init_game(t_game *game_init)
 {
 	game_init->mlx_ptr = mlx_init();
 	if (game_init->mlx_ptr == NULL)
+	{
 		perror("mlx_init failed");
+		exit(EXIT_FAILURE);
+	}
+		
 	game_init->
 }
 

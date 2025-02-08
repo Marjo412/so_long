@@ -64,12 +64,32 @@ void	free_map(char **map)
 	free(map);
 }
 
-void	read_map(t_game *game)
+void	read_map(t_game *game, char *filename)
 {
+	int		fd;
+	char	*line;
+	char	*temp_map;
+
+	fd = open(filename, O_RDONLY);
+	if (fd < 0)
+	{
+		perror("read_map failed");
+		exit(EXIT_FAILURE);
+	}
+	temp_map = NULL;
+	while (line = get_next_line(fd))
+	{
+		temp_map = ft_strjoin(temp_map, line);
+		free(line);
+	}
+	game->map = ft_split(temp_map, '\n');
+	free(temp_map);
+	close(fd);
 }
 
 /*
 **render_tile : The function is called for each tile in the game
 	map, which is then drawn on the screen. Renders a single tile (wall,
 	floor, collectible, player, exit) into the game window.
-**(tile) tuile ou unite de terrain (taille en pixel) */
+**(tile) tuile ou unite de terrain (taille en pixel)
+** read_map open and read a map's file and store content as a 2D array*/
