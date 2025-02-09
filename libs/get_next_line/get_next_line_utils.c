@@ -6,11 +6,11 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:28:12 by marvin            #+#    #+#             */
-/*   Updated: 2024/12/07 12:03:05 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/02/09 13:24:30 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+/*#include "get_next_line.h"
 
 size_t	ft_strlen( const char *str)
 {
@@ -106,7 +106,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	result[j] = '\0';
 	return (result);
-}
+}*/
 
 /* This file contain all functions needed fo the principal function.
 /!\ Always check if the string is NULL

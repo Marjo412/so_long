@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:50:42 by mrosset           #+#    #+#             */
-/*   Updated: 2025/02/09 10:51:34 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/02/09 14:33:56 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 # include <errno.h>
 # include <string.h>
 
-# include "libs/libft/libft.h"
-# include "libs/ft_printf/ft_printf.h"
-# include "libs/minilibx-linux/mlx.h"
-# include "libs/get_next_line/get_next_line.h"
+# include "../libs/libft/libft.h"
+# include "../libs/ft_printf/ft_printf.h"
+# include "../libs/minilibx-linux/mlx.h"
+# include "../libs/get_next_line/get_next_line.h"
 
 # define TILE_SIZE 64
 

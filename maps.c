@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 14:58:33 by mrosset           #+#    #+#             */
-/*   Updated: 2025/02/09 11:17:05 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/02/09 13:48:11 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,11 @@ void	read_map(t_game *game, char *filename)
 		exit(EXIT_FAILURE);
 	}
 	temp_map = NULL;
-	while ((line = get_next_line(fd)))
+	while (1)
 	{
+		line = get_next_line(fd);
+		if (!line)
+			break ;
 		temp_map = ft_strjoin(temp_map, line);
 		free(line);
 	}
