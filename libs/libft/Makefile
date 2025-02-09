@@ -6,14 +6,14 @@
 #    By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/10 10:28:06 by mrosset           #+#    #+#              #
-#    Updated: 2025/01/21 11:06:40 by mrosset          ###   ########.fr        #
+#    Updated: 2025/02/09 12:16:10 by mrosset          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror -I.
+CC = cc 
+CFLAGS = -Wall -Wextra -Werror -I. 
 
 SRCS = ft_atoi.c \
 	   ft_bzero.c \

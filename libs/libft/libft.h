@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 11:21:24 by mrosset           #+#    #+#             */
-/*   Updated: 2025/01/14 10:38:16 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/01/10 10:26:31 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <stddef.h>
-# include <signal.h>
 
 typedef struct s_list
 {

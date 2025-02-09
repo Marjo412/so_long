@@ -6,7 +6,7 @@
 #    By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/30 15:50:15 by mrosset           #+#    #+#              #
-#    Updated: 2025/02/02 13:25:52 by mrosset          ###   ########.fr        #
+#    Updated: 2025/02/09 12:16:49 by mrosset          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,19 +15,22 @@ NAME = so_long
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-LIBFT_DIRECTORY = libft
+LIBFT_DIRECTORY = libs/libft
 LIBFT_ARCHIVE = $(LIBFT_DIRECTORY)/libft.a
 
-FT_PRINTF_DIRECTORY = ft_printf
+FT_PRINTF_DIRECTORY = libs/ft_printf
 FT_PRINTF_ARCHIVE = $(FT_PRINTF_DIRECTORY)/libftprintf.a
 
-GET_NEXT_LINE_DIRECTORY = get_next_line
+GET_NEXT_LINE_DIRECTORY = libs/get_next_line
 GET_NEXT_LINE_ARCHIVE = $(GET_NEXT_LINE_DIRECTORY)/get_next_line.a
 
-LIBMLX_DIRECTORY = minilibx-linux
+LIBMLX_DIRECTORY = libs/minilibx-linux
 LIBMLX_ARCHIVE = $(LIBMLX_DIRECTORY)/libmlx.a
 
-SRCS = main.c \
+SRCS =	main.c \
+		game.c \
+		maps.c \
+		move.c
 
 OBJS = $(SRCS:.c=.o)
 

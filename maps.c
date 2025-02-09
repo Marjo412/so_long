@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 14:58:33 by mrosset           #+#    #+#             */
-/*   Updated: 2025/02/07 15:44:07 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/02/09 11:17:05 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,19 @@ void	create_map(t_game *map)
 void	render_tile(t_game	*map, int x, int y)
 {
 	if (map->map[y][x] == '1')
-		mlx_put_image_to_window(map->mlx, map->win, map->wall,
+		mlx_put_image_to_window(map->mlx_ptr, map->mlx_window, map->wall,
 			x * TILE_SIZE, y * TILE_SIZE);
 	else if (map->map[y][x] == '0')
-		mlx_put_image_to_window(map->mlx, map->win, map->floor,
+		mlx_put_image_to_window(map->mlx_ptr, map->mlx_window, map->floor,
 			x * TILE_SIZE, y * TILE_SIZE);
 	else if (map->map[y][x] == 'P')
-		mlx_put_image_to_window(map->mlx, map->win, map->player,
+		mlx_put_image_to_window(map->mlx_ptr, map->mlx_ptr, map->player,
 			x * TILE_SIZE, y * TILE_SIZE);
 	else if (map->map[y][x] == 'C')
-		mlx_put_image_to_window(map->mlx, map->win,
+		mlx_put_image_to_window(map->mlx_ptr, map->mlx_window,
 			map->collectible, x * TILE_SIZE, y * TILE_SIZE);
 	else if (map->map[y][x] == 'E')
-		mlx_put_image_to_window(map->mlx, map->win, map->exit,
+		mlx_put_image_to_window(map->mlx_ptr, map->mlx_window, map->exit,
 			x * TILE_SIZE, y * TILE_SIZE);
 }
 
@@ -54,7 +54,7 @@ void	free_map(char **map)
 	int	i;
 
 	if (map == NULL)
-		exit(0);
+		return ;
 	i = 0;
 	while (map[i] != NULL)
 	{
@@ -77,7 +77,7 @@ void	read_map(t_game *game, char *filename)
 		exit(EXIT_FAILURE);
 	}
 	temp_map = NULL;
-	while (line = get_next_line(fd))
+	while ((line = get_next_line(fd)))
 	{
 		temp_map = ft_strjoin(temp_map, line);
 		free(line);

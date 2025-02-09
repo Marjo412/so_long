@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 09:24:26 by mrosset           #+#    #+#             */
-/*   Updated: 2025/01/21 10:44:47 by mrosset          ###   ########.fr       */
+/*   Updated: 2024/10/24 10:12:52 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static char	*ft_dup(const char *str, int start, int finish)
 }
 
 char	**ft_split(char const *s, char c)
-{
+{	
 	size_t		i;
 	size_t		j;
 	int			index;

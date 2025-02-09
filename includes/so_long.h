@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:50:42 by mrosset           #+#    #+#             */
-/*   Updated: 2025/02/07 15:11:43 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/02/09 10:51:34 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 # include <errno.h>
 # include <string.h>
 
-# include "libft/libft.h"
-# include "ft_printf/ft_printf.h"
-# include "minilibx-linux/mlx.h"
-# include "get_next_line/get_next_line.h"
+# include "libs/libft/libft.h"
+# include "libs/ft_printf/ft_printf.h"
+# include "libs/minilibx-linux/mlx.h"
+# include "libs/get_next_line/get_next_line.h"
 
 # define TILE_SIZE 64
 
@@ -44,20 +44,28 @@
 typedef struct s_game
 {
 	void	*mlx_ptr;
-	void	*win;
+	void	*mlx_window;
 	char	**map;
 	int		map_width;
 	int		map_height;
 	int		player_x;
 	int		player_y;
-	int		collectible;
 	int		move;
-	t_img	img;
 	void	*player;
 	void	*collectible;
 	void	*exit;
 	void	*wall;
 	void	*floor;
 }	t_game;
+
+void	init_game(t_game *game_init);
+void	init_textures(t_game *game);
+void	create_map(t_game *map);
+void	render_tile(t_game	*map, int x, int y);
+void	free_map(char **map);
+void	read_map(t_game *game, char *filename);
+void	move_player(t_game *game, int dx, int dy);
+int		exit_game(t_game *game);
+int		handle_keypress(int keycode, t_game *game);
 
 #endif
