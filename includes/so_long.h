@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:50:42 by mrosset           #+#    #+#             */
-/*   Updated: 2025/02/09 14:33:56 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/05/13 16:51:19 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,21 @@ typedef struct s_game
 	void	*floor;
 }	t_game;
 
-void	init_game(t_game *game_init);
-void	init_textures(t_game *game);
+// create maps
 void	create_map(t_game *map);
 void	render_tile(t_game	*map, int x, int y);
 void	free_map(char **map);
+int		open_file(char *filename);
+char	*read_line(int fd);
+char	**fill_map(char *file_content);
 void	read_map(t_game *game, char *filename);
+void	init_map_info(t_game *game);
+int		is_rectangle(char **map);
+int		is_valid_chars(char **map);
+
+//game
+void	init_game(t_game *game_init);
+void	init_textures(t_game *game);
 void	move_player(t_game *game, int dx, int dy);
 int		exit_game(t_game *game);
 int		handle_keypress(int keycode, t_game *game);

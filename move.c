@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 13:58:15 by mrosset           #+#    #+#             */
-/*   Updated: 2025/02/07 14:54:06 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/05/13 15:00:55 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	move_player(t_game *game, int dx, int dy)
 	if (game->map[new_y][new_x] == 'C')
 	{
 		game->collectible--;
-		game->map[new_y][new_y] = '0';
+		game->map[new_y][new_x] = '0';
 	}
 	if (game->map[new_y][new_x] == 'E' && game->collectible == 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 14:58:33 by mrosset           #+#    #+#             */
-/*   Updated: 2025/02/09 13:48:11 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/05/13 16:00:48 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	render_tile(t_game	*map, int x, int y)
 		mlx_put_image_to_window(map->mlx_ptr, map->mlx_window, map->floor,
 			x * TILE_SIZE, y * TILE_SIZE);
 	else if (map->map[y][x] == 'P')
-		mlx_put_image_to_window(map->mlx_ptr, map->mlx_ptr, map->player,
+		mlx_put_image_to_window(map->mlx_ptr, map->mlx_window, map->player,
 			x * TILE_SIZE, y * TILE_SIZE);
 	else if (map->map[y][x] == 'C')
 		mlx_put_image_to_window(map->mlx_ptr, map->mlx_window,
@@ -62,32 +62,6 @@ void	free_map(char **map)
 		i++;
 	}
 	free(map);
-}
-
-void	read_map(t_game *game, char *filename)
-{
-	int		fd;
-	char	*line;
-	char	*temp_map;
-
-	fd = open(filename, O_RDONLY);
-	if (fd < 0)
-	{
-		perror("read_map failed");
-		exit(EXIT_FAILURE);
-	}
-	temp_map = NULL;
-	while (1)
-	{
-		line = get_next_line(fd);
-		if (!line)
-			break ;
-		temp_map = ft_strjoin(temp_map, line);
-		free(line);
-	}
-	game->map = ft_split(temp_map, '\n');
-	free(temp_map);
-	close(fd);
 }
 
 /*

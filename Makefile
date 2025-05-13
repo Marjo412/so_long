@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/01/30 15:50:15 by mrosset           #+#    #+#              #
-#    Updated: 2025/02/09 14:36:06 by mrosset          ###   ########.fr        #
+#    Created: 2025/05/13 16:37:03 by mrosset           #+#    #+#              #
+#    Updated: 2025/05/13 16:37:07 by mrosset          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ INCLUDES = -I$(LIBMLX_DIRECTORY) -I$(LIBFT_DIRECTORY) -I$(GET_NEXT_LINE_DIRECTOR
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT_ARCHIVE) $(FT_PRINTF_ARCHIVE) $(GET_NEXT_LINE_ARCHIVE) $(LIBMLX_ARCHIVE)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_DIRECTORY) $(FT_PRINTF_DIRECTORY) $(GET_NEXT_LINE_DIRECTORY) $(LIBMLX_DIRECTORY) $(MLX_FLAGS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_ARCHIVE) $(FT_PRINTF_ARCHIVE) $(GET_NEXT_LINE_ARCHIVE) $(LIBMLX_ARCHIVE) $(MLX_FLAGS) -o $(NAME)
 
 $(LIBFT_ARCHIVE):
 	$(MAKE) -C $(LIBFT_DIRECTORY)
