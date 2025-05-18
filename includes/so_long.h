@@ -58,7 +58,7 @@ typedef struct s_game
 	void	*floor;
 }	t_game;
 
-// create maps
+// map
 void	create_map(t_game *map);
 void	render_tile(t_game	*map, int x, int y);
 void	free_map(char **map);
@@ -69,6 +69,10 @@ void	read_map(t_game *game, char *filename);
 void	init_map_info(t_game *game);
 int		is_rectangle(char **map);
 int		is_valid_chars(char **map);
+int		has_required_elements(char **map);
+void    count_elements(char **map, int counts[3]);
+int		check_walls(char **map);
+int		is_valid_map(char **map);
 
 //game
 void	init_game(t_game *game_init);

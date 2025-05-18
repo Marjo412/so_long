@@ -64,6 +64,31 @@ void	free_map(char **map)
 	free(map);
 }
 
+int	is_valid_map(char **map)
+{
+	if(!is_rectangle(map))
+	{
+		ft_printf("Error : map is not rectangle\n");
+		return (0);
+	}
+	if (!is_valid_chars(map))
+	{
+		ft_printf("Error : map contain invalid chars\n");
+		return (0);
+	}
+	if (!has_required_elements(map))
+	{
+		ft_printf("Error : must contain 1 P, 1 E and at least 1 C\n");
+		return (0);
+	}
+	if (!check_walls(map))
+	{
+		ft_printf("Error : map must be surrounded by walls\n");
+		return (0);
+	}
+	return (1);
+}
+
 /*
 **render_tile : The function is called for each tile in the game
 	map, which is then drawn on the screen. Renders a single tile (wall,

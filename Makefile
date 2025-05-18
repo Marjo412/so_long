@@ -30,7 +30,10 @@ LIBMLX_ARCHIVE = $(LIBMLX_DIRECTORY)/libmlx.a
 SRCS =	main.c \
 		game.c \
 		maps.c \
-		move.c
+		move.c \
+		maps_checks.c \
+		maps_utils.c \
+		maps_path.c
 
 OBJS = $(SRCS:.c=.o)
 

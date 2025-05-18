@@ -19,6 +19,11 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		read_map(&game, argv[1]);
+		if (!is_valid_map(game.map))
+		{
+			free_map(game.map);
+			exit(EXIT_FAILURE);
+		}
 		init_map_info(&game);
 		init_game(&game);
 		init_textures(&game);
