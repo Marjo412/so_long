@@ -40,4 +40,57 @@ char    **copy_map(char **map)
     return (copy);
 }
 
+void    flood_fill(char **map, int x, int y)
+{
+    if (map[y][x] == '1' || map[y][x] == 'F')
+        return;
+    if (map[y][x] != '0' && map[y][x] != 'C' && map[y][x] != 'E' &&
+        map[y][x] != 'P')
+        return;
+    map[y][x] = 'F';
+    flood_fill(map, x + 1, y);
+    flood_fill(map, x - 1, y);
+    flood_fill(map, x, y + 1);
+    flood_fill(map, x, y - 1);
+}
+
+int is_path_valid(t_game *game)
+{
+    char    **copy;
+
+    copy = copy_map(map);
+    if (!copy)
+    {
+        perror("Duplicate map failled");
+        return (0);
+    }
+    flood_fill(copy, game->player_x, game->player_y);
+    if (!check_reachable(copy))
+    {
+        free_map(copy);
+        return (0);
+    }
+    free_map(copy);
+    return (1);
+}
+
+int check_reachable(char **map)
+{
+    int x;
+    int y;
+
+    y = 0;
+    while (map[y])
+    {
+        x = 0;
+        while (map[y][x])
+        {
+            if (map[y][x] == 'C' || map[y][x] == 'E')
+                return (0);
+            x++;
+        }
+        y++;
+    }
+    return (1);
+}
 //continuer ce fichier

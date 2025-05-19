@@ -64,26 +64,31 @@ void	free_map(char **map)
 	free(map);
 }
 
-int	is_valid_map(char **map)
+int	is_valid_map(t_game *game)
 {
-	if(!is_rectangle(map))
+	if(!is_rectangle(game->map))
 	{
 		ft_printf("Error : map is not rectangle\n");
 		return (0);
 	}
-	if (!is_valid_chars(map))
+	if (!is_valid_chars(game->map))
 	{
 		ft_printf("Error : map contain invalid chars\n");
 		return (0);
 	}
-	if (!has_required_elements(map))
+	if (!has_required_elements(game->map))
 	{
 		ft_printf("Error : must contain 1 P, 1 E and at least 1 C\n");
 		return (0);
 	}
-	if (!check_walls(map))
+	if (!check_walls(game->map))
 	{
 		ft_printf("Error : map must be surrounded by walls\n");
+		return (0);
+	}
+	if (!is_path_valid(game))
+	{
+		ft_printf("Error : not all elements are reachable\n")
 		return (0);
 	}
 	return (1);
