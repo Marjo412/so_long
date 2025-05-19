@@ -73,6 +73,10 @@ int		has_required_elements(char **map);
 void    count_elements(char **map, int counts[3]);
 int		check_walls(char **map);
 int		is_valid_map(char **map);
+char    **copy_map(char **map);
+void    flood_fill(char **map, int x, int y);
+int is_path_valid(t_game *game);
+int check_reachable(char **map);
 
 //game
 void	init_game(t_game *game_init);
