@@ -6,13 +6,13 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:28:12 by marvin            #+#    #+#             */
-/*   Updated: 2025/02/09 13:24:30 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/05/21 14:15:38 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include "get_next_line.h"
+#include "get_next_line.h"
 
-size_t	ft_strlen( const char *str)
+size_t	gnl_ft_len( const char *str)
 {
 	size_t	i;
 
@@ -22,7 +22,7 @@ size_t	ft_strlen( const char *str)
 	return (i);
 }
 
-char	*ft_strchr(const char *src, int c)
+char	*gnl_ft_strchr(const char *src, int c)
 {
 	size_t	i;
 
@@ -40,13 +40,13 @@ char	*ft_strchr(const char *src, int c)
 	return (NULL);
 }
 
-char	*ft_strdup(char *src)
+char	*gnl_ft_strdup(char *src)
 {
 	size_t	i;
 	size_t	len;
 	char	*str;
 
-	len = ft_strlen(src);
+	len = gnl_ft_len(src);
 	str = malloc(sizeof(char) * (len + 1));
 	if (str == NULL)
 		return (NULL);
@@ -60,7 +60,7 @@ char	*ft_strdup(char *src)
 	return (str);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*gnl_ft_strjoin(char const *s1, char const *s2)
 {
 	size_t	i;
 	size_t	j;
@@ -68,7 +68,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (s1 == NULL || s2 == NULL)
 		return (NULL);
-	dest = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	dest = (char *)malloc(sizeof(char) * (gnl_ft_len(s1) + gnl_ft_len(s2) + 1));
 	if (dest == NULL)
 		return (NULL);
 	i = 0;
@@ -87,7 +87,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (dest);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*gnl_ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*result;
 	size_t	i;
@@ -106,7 +106,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	result[j] = '\0';
 	return (result);
-}*/
+}
 
 /* This file contain all functions needed fo the principal function.
 /!\ Always check if the string is NULL

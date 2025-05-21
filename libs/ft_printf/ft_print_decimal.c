@@ -6,13 +6,13 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 10:53:30 by mrosset           #+#    #+#             */
-/*   Updated: 2024/11/10 11:11:44 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/05/21 14:18:21 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_strdup(char *src)
+char	*prf_ft_strdup(char *src)
 {
 	int		i;
 	int		len;
@@ -58,7 +58,7 @@ char	*ft_itoa(int n)
 	size_t	len;
 
 	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
+		return (prf_ft_strdup("-2147483648"));
 	len = ft_n_len(n);
 	dest = (char *)malloc(sizeof(char) * (len + 1));
 	if (dest == NULL)

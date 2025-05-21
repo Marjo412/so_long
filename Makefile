@@ -6,7 +6,7 @@
 #    By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/13 16:37:03 by mrosset           #+#    #+#              #
-#    Updated: 2025/05/21 10:05:30 by mrosset          ###   ########.fr        #
+#    Updated: 2025/05/21 14:01:06 by mrosset          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ INCLUDES = -I$(LIBMLX_DIRECTORY) -I$(LIBFT_DIRECTORY) -I$(GET_NEXT_LINE_DIRECTOR
 %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-all: $(NAME)
+all: $(NAME) $(LIBFT) $(FT_PRINTF) $(GET_NEXT_LINE) $(LIBMLX)
 
 $(NAME): $(OBJS) $(LIBFT_ARCHIVE) $(FT_PRINTF_ARCHIVE) $(GET_NEXT_LINE_ARCHIVE) $(LIBMLX_ARCHIVE)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_ARCHIVE) $(FT_PRINTF_ARCHIVE) $(GET_NEXT_LINE_ARCHIVE) $(LIBMLX_ARCHIVE) $(MLX_FLAGS) -o $(NAME)
@@ -74,7 +74,6 @@ fclean: clean
 		make fclean -C $(LIBFT_DIRECTORY)
 		make fclean -C $(FT_PRINTF_DIRECTORY)
 		make fclean -C $(GET_NEXT_LINE_DIRECTORY)
-		make fclean -C $(LIBMLX_DIRECTORY)
 				
 
 re: fclean all

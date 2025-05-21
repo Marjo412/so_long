@@ -6,7 +6,7 @@
 #    By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/02 10:56:22 by mrosset           #+#    #+#              #
-#    Updated: 2025/02/09 13:43:20 by mrosset          ###   ########.fr        #
+#    Updated: 2025/05/21 12:57:14 by mrosset          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,21 +15,15 @@ NAME = get_next_line.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-LIBFT_DIRECTORY = ../libft
-LIBFT_ARCHIVE = $(LIBFT_DIRECTORY)/libft.a
-
 SRCS =  get_next_line.c \
 		get_next_line_utils.c
 
 OBJS = $(SRCS:.c=.o)
 
-$(NAME): $(OBJS) $(LIBFT_ARCHIVE)
+$(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
-all: $(NAME) $(LIBFT_ARCHIVE)
-
-$(LIBFT_ARCHIVE):
-	make -C $(LIBFT_DIRECTORY)
+all: $(NAME)
 
 clean:
 	rm -rf $(OBJS)

@@ -6,21 +6,21 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 10:04:44 by mrosset           #+#    #+#             */
-/*   Updated: 2025/05/21 10:11:27 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/05/21 12:32:07 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/so_long.h"
 
-static char *read_file_content(int fd)
+static char	*read_file_content(int fd)
 {
-    char    *line;
-    char    *file_content;
-    char    *temp;
+	char	*line;
+	char	*file_content;
+	char	*temp;
 
-    file_content = ft_strdup("");
-    if (!file_content)
-        return (NULL);
+	file_content = ft_strdup("");
+	if (!file_content)
+		return (NULL);
 	line = read_line(fd);
 	while (line)
 	{
@@ -29,10 +29,10 @@ static char *read_file_content(int fd)
 		free(temp);
 		free(line);
 		if (!file_content)
-            return (NULL);
-        line = read_line(fd);
-    }
-    return (file_content);
+			return (NULL);
+		line = read_line(fd);
+	}
+	return (file_content);
 }
 
 void	read_map(t_game *game, char *filename)
@@ -42,9 +42,9 @@ void	read_map(t_game *game, char *filename)
 
 	fd = open_file(filename);
 	file_content = read_file_content(fd);
-    close(fd);
-    if (!file_content)
-    {
+	close(fd);
+	if (!file_content)
+	{
 		perror("read_map: memory allocation failed");
 		exit(EXIT_FAILURE);
 	}

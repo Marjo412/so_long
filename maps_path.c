@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   maps_path.c                                         :+:    :+:           */
+/*   maps_path.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 17:47:07 by marvin            #+#    #+#             */
-/*   Updated: 2025/05/21 09:40:32 by mrosset        ########   odam.nl        */
+/*   Updated: 2025/05/21 12:34:36 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	is_path_valid(t_game *game)
 {
 	char	**copy;
 
-	copy = copy_map(map);
+	copy = copy_map(game->map);
 	if (!copy)
 	{
 		perror("Duplicate map failled");
