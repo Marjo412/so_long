@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 14:58:33 by mrosset           #+#    #+#             */
-/*   Updated: 2025/05/13 16:00:48 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/05/21 08:59:42 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	free_map(char **map)
 
 int	is_valid_map(t_game *game)
 {
-	if(!is_rectangle(game->map))
+	if (!is_rectangle(game->map))
 	{
 		ft_printf("Error : map is not rectangle\n");
 		return (0);

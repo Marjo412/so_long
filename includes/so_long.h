@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:50:42 by mrosset           #+#    #+#             */
-/*   Updated: 2025/05/13 16:51:19 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/05/21 08:57:59 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,13 @@ void	init_map_info(t_game *game);
 int		is_rectangle(char **map);
 int		is_valid_chars(char **map);
 int		has_required_elements(char **map);
-void    count_elements(char **map, int counts[3]);
+void	count_elements(char **map, int counts[3]);
 int		check_walls(char **map);
 int		is_valid_map(char **map);
-char    **copy_map(char **map);
-void    flood_fill(char **map, int x, int y);
-int is_path_valid(t_game *game);
-int check_reachable(char **map);
+char	**copy_map(char **map);
+void	flood_fill(char **map, int x, int y);
+int		is_path_valid(t_game *game);
+int		check_reachable(char **map);
 
 //game
 void	init_game(t_game *game_init);
