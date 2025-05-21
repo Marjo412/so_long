@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 12:42:05 by mrosset           #+#    #+#             */
-/*   Updated: 2025/02/09 11:07:54 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/05/21 15:50:34 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	init_textures(t_game *game)
 
 	game->player = mlx_xpm_file_to_image(game->mlx_ptr, \
 	"textures/player.xpm", &image_width, &image_height);
-	game->collectible = mlx_xpm_file_to_image(game->mlx_ptr, \
+	game->collectible_texture = mlx_xpm_file_to_image(game->mlx_ptr, \
 	"textures/collectible.xpm", &image_width, &image_height);
 	game->exit = mlx_xpm_file_to_image(game->mlx_ptr, \
 	"textures/exit.xpm", &image_width, &image_height);
@@ -50,13 +50,23 @@ void	init_textures(t_game *game)
 	"textures/wall.xpm", &image_width, &image_height);
 	game->floor = mlx_xpm_file_to_image(game->mlx_ptr, \
 	"textures/floor.xpm", &image_width, &image_height);
-	if (!game->player || !game->collectible || !game->exit
+	if (!game->player || !game->collectible_texture || !game->exit
 		|| !game->wall || !game->floor)
 		perror("init_textures failed");
 }
 
 int	exit_game(t_game *game)
 {
+	if (game->player)
+		mlx_destroy_image(game->mlx_ptr, game->player);
+	if (game->collectible_texture)
+		mlx_destroy_image(game->mlx_ptr, game->collectible_texture);
+	if (game->exit)
+		mlx_destroy_image(game->mlx_ptr, game->exit);
+	if (game->wall)
+		mlx_destroy_image(game->mlx_ptr, game->wall);
+	if (game->floor)
+		mlx_destroy_image(game->mlx_ptr, game->floor);
 	mlx_destroy_window(game->mlx_ptr, game->mlx_window);
 	free_map(game->map);
 	exit(EXIT_SUCCESS);

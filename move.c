@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 13:58:15 by mrosset           #+#    #+#             */
-/*   Updated: 2025/05/13 15:00:55 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/05/21 15:34:37 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,31 @@ int	handle_keypress(int keycode, t_game *game)
 	return (0);
 }
 
+static void	update_position(t_game *game, int x, int y)
+{
+	game->player_x = x;
+	game->player_y = y;
+	game->move++;
+	ft_printf("Moves : %d\n", game->move);
+	create_map(game);
+}
+
+static int	handle_tile(t_game *game, int x, int y)
+{
+	if (game->map[y][x] == 'C')
+	{
+		game->collectible_count--;
+		game->map[y][x] = '0';
+	}
+	if (game->map[y][x] == 'E' && game->collectible_count == 0)
+	{
+		ft_printf("Youpiii !! You win !!\n");
+		exit_game(game);
+		return (0);
+	}
+	return (1);
+}
+
 void	move_player(t_game *game, int dx, int dy)
 {
 	int	new_x;
@@ -34,22 +59,15 @@ void	move_player(t_game *game, int dx, int dy)
 
 	new_x = game->player_x + dx;
 	new_y = game->player_y + dy;
+	if (new_x < 0 || new_x >= game->map_width ||
+		new_y < 0 || new_y >= game->map_height)
+		return ;
 	if (game->map[new_y][new_x] == '1')
 		return ;
-	if (game->map[new_y][new_x] == 'C')
-	{
-		game->collectible--;
-		game->map[new_y][new_x] = '0';
-	}
-	if (game->map[new_y][new_x] == 'E' && game->collectible == 0)
-	{
-		ft_printf("Youpiii !! You win !!\n");
-		exit_game(game);
+	if (!handle_tile(game, new_x, new_y))
 		return ;
-	}
-	game->player_x = new_x;
-	game->player_y = new_y;
-	create_map(game);
+	if (game->map[new_y][new_x] != 'E')
+		update_position(game, new_x, new_y);
 }
 
 /*

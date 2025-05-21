@@ -6,11 +6,12 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 17:47:07 by marvin            #+#    #+#             */
-/*   Updated: 2025/05/21 12:34:36 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/05/21 16:47:23 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/so_long.h"
+#include <stdio.h>
 
 char	**copy_map(char **map)
 {
@@ -40,23 +41,37 @@ char	**copy_map(char **map)
 	return (copy);
 }
 
-void	flood_fill(char **map, int x, int y)
+void	flood_fill(t_game *game, int x, int y)
 {
-	if (map[y][x] == '1' || map[y][x] == 'F')
+	if (x < 0 || y < 0 || x >= game->map_width || y >= game->map_height)
+	{
+		printf("1\n");
+		printf("x = %d\n", game->map_width);
 		return ;
-	if (map[y][x] != '0' && map[y][x] != 'C' && map[y][x] != 'E' &&
-			map[y][x] != 'P')
+	}
+	if (game->map[y][x] == '1' || game->map[y][x] == 'F')
+	{
+		printf("2\n");
 		return ;
-	map[y][x] = 'F';
-	flood_fill(map, x + 1, y);
-	flood_fill(map, x - 1, y);
-	flood_fill(map, x, y + 1);
-	flood_fill(map, x, y - 1);
+	}
+	if (game->map[y][x] != '0' && game->map[y][x] != 'C'
+		&& game->map[y][x] != 'E' && game->map[y][x] != 'P')
+	{
+		printf("3\n");
+		return ;
+	}
+	game->map[y][x] = 'F';
+	flood_fill(game, x + 1, y);
+	flood_fill(game, x - 1, y);
+	flood_fill(game, x, y + 1);
+	flood_fill(game, x, y - 1);
 }
 
 int	is_path_valid(t_game *game)
 {
+	int		reachable;
 	char	**copy;
+	char	**old_map;
 
 	copy = copy_map(game->map);
 	if (!copy)
@@ -64,14 +79,13 @@ int	is_path_valid(t_game *game)
 		perror("Duplicate map failled");
 		return (0);
 	}
-	flood_fill(copy, game->player_x, game->player_y);
-	if (!check_reachable(copy))
-	{
-		free_map(copy);
-		return (0);
-	}
+	old_map = game->map;
+	game->map = copy;
+	flood_fill(game, game->player_x, game->player_y);
+	reachable = check_reachable(copy);
+	game->map = old_map;
 	free_map(copy);
-	return (1);
+	return (reachable);
 }
 
 int	check_reachable(char **map)

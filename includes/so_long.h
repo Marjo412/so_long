@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:50:42 by mrosset           #+#    #+#             */
-/*   Updated: 2025/05/21 12:15:54 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/05/21 16:54:20 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 # define KEY_LEFT 65364
 # define KEY_DOWN 65361
 # define KEY_RIGHT 65363
-# define ESC 65387
+# define ESC 0XFF1B
 
 typedef struct s_game
 {
@@ -51,8 +51,9 @@ typedef struct s_game
 	int		player_x;
 	int		player_y;
 	int		move;
+	int		collectible_count;
 	void	*player;
-	void	*collectible;
+	void	*collectible_texture;
 	void	*exit;
 	void	*wall;
 	void	*floor;
@@ -74,7 +75,7 @@ void	count_elements(char **map, int counts[3]);
 int		check_walls(char **map);
 int		is_valid_map(t_game *game);
 char	**copy_map(char **map);
-void	flood_fill(char **map, int x, int y);
+void	flood_fill(t_game *game, int x, int y);
 int		is_path_valid(t_game *game);
 int		check_reachable(char **map);
 

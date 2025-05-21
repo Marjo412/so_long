@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 14:58:33 by mrosset           #+#    #+#             */
-/*   Updated: 2025/05/21 09:50:18 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/05/21 15:39:34 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	render_tile(t_game	*map, int x, int y)
 			x * TILE_SIZE, y * TILE_SIZE);
 	else if (map->map[y][x] == 'C')
 		mlx_put_image_to_window(map->mlx_ptr, map->mlx_window,
-			map->collectible, x * TILE_SIZE, y * TILE_SIZE);
+			map->collectible_texture, x * TILE_SIZE, y * TILE_SIZE);
 	else if (map->map[y][x] == 'E')
 		mlx_put_image_to_window(map->mlx_ptr, map->mlx_window, map->exit,
 			x * TILE_SIZE, y * TILE_SIZE);

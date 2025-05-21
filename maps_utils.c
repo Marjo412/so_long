@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 15:36:28 by mrosset           #+#    #+#             */
-/*   Updated: 2025/05/21 10:05:08 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/05/21 14:48:38 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	init_map_info(t_game *game)
 	int	y;
 
 	game->map_height = 0;
+	game->collectible_count = 0;
 	while (game->map[game->map_height])
 		game->map_height++;
 	game->map_width = ft_strlen(game->map[0]);

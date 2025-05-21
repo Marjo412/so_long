@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:50:10 by mrosset           #+#    #+#             */
-/*   Updated: 2025/05/21 09:52:21 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/05/21 16:45:39 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		read_map(&game, argv[1]);
+		init_map_info(&game);
 		if (!is_valid_map(&game))
 		{
 			free_map(game.map);
 			exit(EXIT_FAILURE);
 		}
-		init_map_info(&game);
 		init_game(&game);
 		init_textures(&game);
 		create_map(&game);
