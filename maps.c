@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 14:58:33 by mrosset           #+#    #+#             */
-/*   Updated: 2025/05/21 08:59:42 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/05/21 09:50:18 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,33 +64,24 @@ void	free_map(char **map)
 	free(map);
 }
 
+static int	print_map_error(char *message)
+{
+	ft_printf("Error : %s\n", message);
+	return (0);
+}
+
 int	is_valid_map(t_game *game)
 {
 	if (!is_rectangle(game->map))
-	{
-		ft_printf("Error : map is not rectangle\n");
-		return (0);
-	}
+		return (print_map_error("map is not rectangle"));
 	if (!is_valid_chars(game->map))
-	{
-		ft_printf("Error : map contain invalid chars\n");
-		return (0);
-	}
+		return (print_map_error("map contains invalid chars"));
 	if (!has_required_elements(game->map))
-	{
-		ft_printf("Error : must contain 1 P, 1 E and at least 1 C\n");
-		return (0);
-	}
+		return (print_map_error("must contain 1 P, 1 E and at least 1 C"));
 	if (!check_walls(game->map))
-	{
-		ft_printf("Error : map must be surrounded by walls\n");
-		return (0);
-	}
+		return (print_map_error("map must be surrounded by walls"));
 	if (!is_path_valid(game))
-	{
-		ft_printf("Error : not all elements are reachable\n")
-		return (0);
-	}
+		return (print_map_error("not all elements are reachable"));
 	return (1);
 }
 

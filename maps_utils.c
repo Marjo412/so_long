@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   maps_utils.c                                        :+:    :+:           */
+/*   maps_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 15:36:28 by mrosset           #+#    #+#             */
-/*   Updated: 2025/05/21 09:16:36 by mrosset        ########   odam.nl        */
+/*   Updated: 2025/05/21 10:05:08 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,33 +46,6 @@ char	**fill_map(char *file_content)
 		exit(EXIT_FAILURE);
 	}
 	return (map);
-}
-
-void	read_map(t_game *game, char *filename)
-{
-	int		fd;
-	char	*line;
-	char	*file_content;
-	char	*temp;
-
-	fd = open_file(filename);
-	file_content = ft_strdup("");
-	line = read_line(fd);
-	while (line)
-	{
-		temp = file_content;
-		file_content = ft_strjoin(file_content, line);
-		free(temp);
-		free(line);
-		if (!file_content)
-		{
-			perror("read_map: memory allocation failed");
-			exit(EXIT_FAILURE);
-		}
-	}
-	close(fd);
-	game->map = fill_map(file_content);
-	free(file_content);
 }
 
 void	init_map_info(t_game *game)

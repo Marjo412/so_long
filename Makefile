@@ -6,7 +6,7 @@
 #    By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/13 16:37:03 by mrosset           #+#    #+#              #
-#    Updated: 2025/05/13 16:37:07 by mrosset          ###   ########.fr        #
+#    Updated: 2025/05/21 10:05:30 by mrosset          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRCS =	main.c \
 		move.c \
 		maps_checks.c \
 		maps_utils.c \
+		maps_read.c \
 		maps_path.c
 
 OBJS = $(SRCS:.c=.o)
