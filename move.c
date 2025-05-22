@@ -29,8 +29,10 @@ int	handle_keypress(int keycode, t_game *game)
 
 static void	update_position(t_game *game, int x, int y)
 {
+	game->map[game->player_y][game->player_x] = '0';
 	game->player_x = x;
 	game->player_y = y;
+	game->map[y][x] = 'P';
 	game->move++;
 	ft_printf("Moves : %d\n", game->move);
 	create_map(game);
@@ -72,5 +74,5 @@ void	move_player(t_game *game, int dx, int dy)
 
 /*
 ** the function move_player check the new posiion of the player, if its 1 (wall)
-it don't move, if its C (collectible) replace a 0 (wall), if ita E (exit) and
-the number of C is 0, htis this the end of the game.*/
+it don't move, if its C (collectible) replace a 0 (floor), if it's E (exit) and
+the number of C is 0, this is the end of the game.*/

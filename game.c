@@ -14,6 +14,8 @@
 
 void	init_game(t_game *game_init)
 {
+	game_init->move = 0;
+	
 	game_init->mlx_ptr = mlx_init();
 	if (game_init->mlx_ptr == NULL)
 	{
