@@ -6,12 +6,11 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 17:47:07 by marvin            #+#    #+#             */
-/*   Updated: 2025/05/21 16:47:23 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/05/25 10:22:54 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/so_long.h"
-#include <stdio.h>
 
 char	**copy_map(char **map)
 {
@@ -44,22 +43,12 @@ char	**copy_map(char **map)
 void	flood_fill(t_game *game, int x, int y)
 {
 	if (x < 0 || y < 0 || x >= game->map_width || y >= game->map_height)
-	{
-		printf("1\n");
-		printf("x = %d\n", game->map_width);
 		return ;
-	}
 	if (game->map[y][x] == '1' || game->map[y][x] == 'F')
-	{
-		printf("2\n");
 		return ;
-	}
 	if (game->map[y][x] != '0' && game->map[y][x] != 'C'
 		&& game->map[y][x] != 'E' && game->map[y][x] != 'P')
-	{
-		printf("3\n");
 		return ;
-	}
 	game->map[y][x] = 'F';
 	flood_fill(game, x + 1, y);
 	flood_fill(game, x - 1, y);
