@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 13:58:15 by mrosset           #+#    #+#             */
-/*   Updated: 2025/05/21 15:34:37 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/05/25 09:57:12 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,37 @@ int	handle_keypress(int keycode, t_game *game)
 	return (0);
 }
 
+static int	handle_tile(t_game *game, int x, int y)
+{
+	char	tile;
+
+	tile = game->map[y][x];
+	if (tile == 'E')
+	{
+		if (game->collectible_count == 0)
+		{
+			ft_printf("Youpiii !! You win !!\n");
+			exit_game(game);
+			return (0);
+		}
+		else
+		{
+			ft_printf("These are still collectibles!\n");
+			return (0);
+		}
+	}
+	if (tile == 'C')
+	{
+		game->collectible_count--;
+		game->map[y][x] = '0';
+	}
+	return (1);
+}
+
 static void	update_position(t_game *game, int x, int y)
 {
+	if (!handle_tile(game, x, y))
+		return ;
 	game->map[game->player_y][game->player_x] = '0';
 	game->player_x = x;
 	game->player_y = y;
@@ -38,22 +67,6 @@ static void	update_position(t_game *game, int x, int y)
 	create_map(game);
 }
 
-static int	handle_tile(t_game *game, int x, int y)
-{
-	if (game->map[y][x] == 'C')
-	{
-		game->collectible_count--;
-		game->map[y][x] = '0';
-	}
-	if (game->map[y][x] == 'E' && game->collectible_count == 0)
-	{
-		ft_printf("Youpiii !! You win !!\n");
-		exit_game(game);
-		return (0);
-	}
-	return (1);
-}
-
 void	move_player(t_game *game, int dx, int dy)
 {
 	int	new_x;
@@ -61,8 +74,8 @@ void	move_player(t_game *game, int dx, int dy)
 
 	new_x = game->player_x + dx;
 	new_y = game->player_y + dy;
-	if (new_x < 0 || new_x >= game->map_width ||
-		new_y < 0 || new_y >= game->map_height)
+	if (new_x < 0 || new_x >= game->map_width
+		|| new_y < 0 || new_y >= game->map_height)
 		return ;
 	if (game->map[new_y][new_x] == '1')
 		return ;

@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 12:42:05 by mrosset           #+#    #+#             */
-/*   Updated: 2025/05/21 15:50:34 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/05/25 09:58:46 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	init_game(t_game *game_init)
 {
 	game_init->move = 0;
-	
 	game_init->mlx_ptr = mlx_init();
 	if (game_init->mlx_ptr == NULL)
 	{

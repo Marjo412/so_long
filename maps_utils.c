@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 15:36:28 by mrosset           #+#    #+#             */
-/*   Updated: 2025/05/21 14:48:38 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/05/25 09:51:38 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,9 @@ void	init_map_info(t_game *game)
 			{
 				game->player_x = x;
 				game->player_y = y;
-				return ;
 			}
+			else if (game->map[y][x] == 'C')
+				game->collectible_count++;
 			x++;
 		}
 		y++;

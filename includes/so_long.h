@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:50:42 by mrosset           #+#    #+#             */
-/*   Updated: 2025/05/21 16:54:20 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/05/25 08:52:41 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@
 # define KEY_S 115
 # define KEY_D 100
 # define KEY_UP 65362
-# define KEY_LEFT 65364
-# define KEY_DOWN 65361
+# define KEY_LEFT 65361
+# define KEY_DOWN 65364
 # define KEY_RIGHT 65363
 # define ESC 0XFF1B
 
