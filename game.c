@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 12:42:05 by mrosset           #+#    #+#             */
-/*   Updated: 2025/05/25 09:58:46 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/05/25 12:36:58 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,11 @@ int	exit_game(t_game *game)
 	if (game->floor)
 		mlx_destroy_image(game->mlx_ptr, game->floor);
 	mlx_destroy_window(game->mlx_ptr, game->mlx_window);
+	if (game->mlx_ptr)
+	{
+		mlx_destroy_display(game->mlx_ptr);
+		free(game->mlx_ptr);
+	}
 	free_map(game->map);
 	exit(EXIT_SUCCESS);
 	return (0);

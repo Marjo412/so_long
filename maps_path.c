@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 17:47:07 by marvin            #+#    #+#             */
-/*   Updated: 2025/05/25 10:22:54 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/05/25 11:27:26 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,4 +97,11 @@ int	check_reachable(char **map)
 	return (1);
 }
 
-//continuer ce fichier
+/***copy_map : create a copy of the ma to do the flood.
+**flood_fill : is for check if all elements are reachable from the
+	player position, simulate a flood to mark accessible tiles.
+** is_path_valid : check if the map is playable, create a copy of
+	the original map, check with the flood and restore the map.
+** check_reachable : check if collectibles and exit are reachable
+	with the flood.
+ */

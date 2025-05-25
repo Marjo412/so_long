@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 10:04:44 by mrosset           #+#    #+#             */
-/*   Updated: 2025/05/21 12:32:07 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/05/25 11:30:33 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,3 +51,7 @@ void	read_map(t_game *game, char *filename)
 	game->map = fill_map(file_content);
 	free(file_content);
 }
+
+/*** read_file_content : read all the file line by line and keep one big
+	string.
+*/
