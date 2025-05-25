@@ -6,7 +6,7 @@
 #    By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/10 10:28:06 by mrosset           #+#    #+#              #
-#    Updated: 2025/02/09 12:16:10 by mrosset          ###   ########.fr        #
+#    Updated: 2025/05/25 14:37:19 by mrosset          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,6 @@ SRCS = ft_atoi.c \
 	   ft_isascii.c \
 	   ft_isdigit.c \
 	   ft_isprint.c \
-	   ft_itoa.c \
 	   ft_memchr.c \
 	   ft_memcmp.c \
 	   ft_memcpy.c \

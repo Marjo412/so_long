@@ -6,14 +6,14 @@
 #    By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/13 16:37:03 by mrosset           #+#    #+#              #
-#    Updated: 2025/05/21 14:01:06 by mrosset          ###   ########.fr        #
+#    Updated: 2025/05/25 14:01:35 by mrosset          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 LIBFT_DIRECTORY = libs/libft
 LIBFT_ARCHIVE = $(LIBFT_DIRECTORY)/libft.a

@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:50:42 by mrosset           #+#    #+#             */
-/*   Updated: 2025/05/25 08:52:41 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/05/25 14:38:15 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,10 @@ int		check_reachable(char **map);
 //game
 void	init_game(t_game *game_init);
 void	init_textures(t_game *game);
+void	render_move_counter(t_game *game);
 void	move_player(t_game *game, int dx, int dy);
 int		exit_game(t_game *game);
 int		handle_keypress(int keycode, t_game *game);
+//void	render_move_counter(t_game *game);
 
 #endif

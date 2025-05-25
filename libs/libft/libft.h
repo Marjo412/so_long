@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 11:21:24 by mrosset           #+#    #+#             */
-/*   Updated: 2025/02/09 13:20:58 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/05/25 14:37:11 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int				ft_isalpha(int c);
 int				ft_isascii(int c);
 int				ft_isdigit(int c);
 int				ft_isprint(int c);
-char			*ft_itoa(int n);
 void			*ft_memchr(const void *s, int c, size_t len);
 int				ft_memcmp(const void *s1, const void *s2, size_t len);
 void			*ft_memcpy(void *dest, const void *src, size_t n);
