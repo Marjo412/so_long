@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 17:47:07 by marvin            #+#    #+#             */
-/*   Updated: 2025/05/25 11:27:26 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/05/27 10:40:29 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,11 @@ void	flood_fill(t_game *game, int x, int y)
 		return ;
 	if (game->map[y][x] == '1' || game->map[y][x] == 'F')
 		return ;
+	if (game->map[y][x] == 'E')
+	{
+		game->map[y][x] = 'F';
+		return ;
+	}
 	if (game->map[y][x] != '0' && game->map[y][x] != 'C'
 		&& game->map[y][x] != 'E' && game->map[y][x] != 'P')
 		return ;

@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:50:42 by mrosset           #+#    #+#             */
-/*   Updated: 2025/05/25 14:38:15 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/05/27 11:09:40 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ char	**copy_map(char **map);
 void	flood_fill(t_game *game, int x, int y);
 int		is_path_valid(t_game *game);
 int		check_reachable(char **map);
+int		has_ber_extension(const char *filename);
 
 //game
 void	init_game(t_game *game_init);
@@ -86,6 +87,5 @@ void	render_move_counter(t_game *game);
 void	move_player(t_game *game, int dx, int dy);
 int		exit_game(t_game *game);
 int		handle_keypress(int keycode, t_game *game);
-//void	render_move_counter(t_game *game);
 
 #endif

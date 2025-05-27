@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:50:10 by mrosset           #+#    #+#             */
-/*   Updated: 2025/05/25 14:13:22 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/05/27 10:44:55 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@ int	main(int argc, char **argv)
 
 	if (argc == 2)
 	{
+		if (!has_ber_extension(argv[1]))
+		{
+			ft_printf("Error: map must have a .ber extension\n");
+			return (1);
+		}
 		read_map(&game, argv[1]);
 		init_map_info(&game);
 		if (!is_valid_map(&game))

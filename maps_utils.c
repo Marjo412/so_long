@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 15:36:28 by mrosset           #+#    #+#             */
-/*   Updated: 2025/05/25 09:51:38 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/05/27 10:23:23 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	open_file(char *filename)
 char	*read_line(int fd)
 {
 	char	*line;
+
 
 	line = get_next_line(fd);
 	if (!line)
